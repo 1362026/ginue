@@ -1,0 +1,923 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>경인교육대학교 대국민 알림 포털 - 미래 초등교육을 선도하는 지성의 요람</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Tailwind Custom Config for GINUE Wine Theme -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            ginue: {
+              50: '#fdf2f4',
+              100: '#fce7eb',
+              200: '#f9d2d9',
+              300: '#f4adb9',
+              400: '#eb7b91',
+              500: '#dc4c6b',
+              600: '#c52f53',
+              700: '#a52140',
+              800: '#8b1c36', // 경인교대 공식 심볼 와인(버건디) 계열
+              900: '#5c0d20', // 깊은 딥 와인
+              950: '#380411', // 다크 버건디
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Pretendard Font -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css">
+  <style>
+    body {
+      font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif;
+      word-break: keep-all;
+    }
+    .ginue-hero {
+      background-color: #4a0817;
+      background-image: radial-gradient(rgba(255, 255, 255, 0.12) 1px, transparent 1px), radial-gradient(rgba(220, 76, 107, 0.2) 1px, #4a0817 1px);
+      background-size: 36px 36px;
+      background-position: 0 0, 18px 18px;
+    }
+    .tab-btn.active {
+      background-color: #8b1c36;
+      color: #ffffff;
+      box-shadow: 0 4px 6px -1px rgba(139, 28, 54, 0.35);
+    }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased selection:bg-ginue-100 selection:text-ginue-900">
+
+  <!-- 상단 공공 안내 띠배너 -->
+  <div class="bg-ginue-950 text-ginue-200 text-xs py-1.5 px-4 border-b border-ginue-900">
+    <div class="max-w-7xl mx-auto flex items-center justify-between">
+      <div class="flex items-center space-x-2">
+        <span class="inline-block w-2 h-2 rounded-full bg-amber-400"></span>
+        <span>국립 경인교육대학교(GINUE) 공식 정보 제공 포털 | 미래 교원 양성의 중심</span>
+      </div>
+      <div class="hidden sm:flex items-center space-x-4 text-ginue-300">
+        <a href="https://www.ginue.ac.kr" target="_blank" class="hover:text-white transition">경인교대 대표 누리집</a>
+        <span>|</span>
+        <span>인천캠퍼스 & 경기(안양) 캠퍼스</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 헤더 & 내비게이션 -->
+  <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-sm transition">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20">
+        <!-- 로고 영역 -->
+        <a href="#" class="flex items-center space-x-3 group">
+          <div class="w-11 h-11 rounded-xl bg-gradient-to-tr from-ginue-900 via-ginue-800 to-ginue-600 flex items-center justify-center text-white shadow-md shadow-ginue-900/30 group-hover:scale-105 transition transform">
+            <i class="fa-solid fa-graduation-cap text-xl"></i>
+          </div>
+          <div>
+            <div class="flex items-center space-x-2">
+              <span class="text-2xl font-black tracking-tight text-slate-900">경인교육대학교</span>
+              <span class="text-xs font-semibold px-2 py-0.5 bg-ginue-100 text-ginue-800 rounded-full">국민포털</span>
+            </div>
+            <p class="text-xs text-slate-500 font-medium tracking-wide">Gyeongin National University of Education</p>
+          </div>
+        </a>
+
+        <!-- 데스크톱 내비게이션 -->
+        <nav class="hidden md:flex items-center space-x-1 lg:space-x-2 text-sm font-semibold">
+          <a href="#issues" class="px-3 py-2 text-slate-700 hover:text-ginue-800 hover:bg-ginue-50 rounded-lg transition">최근 주요 이슈</a>
+          <a href="#mission" class="px-3 py-2 text-slate-700 hover:text-ginue-800 hover:bg-ginue-50 rounded-lg transition">핵심 업무 분야</a>
+          <a href="#campus" class="px-3 py-2 text-slate-700 hover:text-ginue-800 hover:bg-ginue-50 rounded-lg transition">듀얼 캠퍼스 안내</a>
+          <a href="#citizens" class="px-3 py-2 text-slate-700 hover:text-ginue-800 hover:bg-ginue-50 rounded-lg transition">시민·지역 개방 프로그램</a>
+          <a href="#faq" class="px-3 py-2 text-slate-700 hover:text-ginue-800 hover:bg-ginue-50 rounded-lg transition">FAQ & 소통</a>
+        </nav>
+
+        <!-- 우측 액션 버튼 -->
+        <div class="flex items-center space-x-3">
+          <a href="https://www.ginue.ac.kr" target="_blank" rel="noopener noreferrer" class="hidden sm:inline-flex items-center space-x-1 px-3.5 py-2 text-xs font-bold rounded-lg bg-ginue-50 text-ginue-800 border border-ginue-200 hover:bg-ginue-100 transition">
+            <span>공식 대표홈페이지</span>
+            <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+          </a>
+          <button id="mobileMenuBtn" class="md:hidden p-2 text-slate-600 hover:text-slate-900 focus:outline-none">
+            <i class="fa-solid fa-bars text-xl"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- 모바일 드롭다운 메뉴 -->
+    <div id="mobileMenu" class="hidden md:hidden border-t border-slate-200 bg-white px-4 pt-3 pb-6 space-y-2">
+      <a href="#issues" class="block px-3 py-2 rounded-lg text-base font-semibold text-slate-800 hover:bg-ginue-50">최근 주요 이슈</a>
+      <a href="#mission" class="block px-3 py-2 rounded-lg text-base font-semibold text-slate-800 hover:bg-ginue-50">핵심 업무 분야</a>
+      <a href="#campus" class="block px-3 py-2 rounded-lg text-base font-semibold text-slate-800 hover:bg-ginue-50">듀얼 캠퍼스 안내</a>
+      <a href="#citizens" class="block px-3 py-2 rounded-lg text-base font-semibold text-slate-800 hover:bg-ginue-50">시민·지역 개방 프로그램</a>
+      <a href="#faq" class="block px-3 py-2 rounded-lg text-base font-semibold text-slate-800 hover:bg-ginue-50">FAQ & 소통</a>
+      <a href="https://www.ginue.ac.kr" target="_blank" class="block px-3 py-2 rounded-lg text-base font-bold text-ginue-800 bg-ginue-50">경인교대 공식 누리집 이동</a>
+    </div>
+  </header>
+
+  <!-- 메인 히어로 섹션 (와인 컬러 테마 적용) -->
+  <section class="ginue-hero relative text-white py-16 lg:py-24 overflow-hidden">
+    <!-- 배경 조명 효과 -->
+    <div class="absolute -top-24 -left-24 w-96 h-96 bg-rose-500/20 rounded-full blur-3xl pointer-events-none"></div>
+    <div class="absolute -bottom-24 -right-24 w-96 h-96 bg-amber-500/15 rounded-full blur-3xl pointer-events-none"></div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        <!-- 텍스트 영역 -->
+        <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+          <div class="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-white/10 border border-white/20 text-rose-200 text-xs sm:text-sm font-medium backdrop-blur">
+            <span class="w-2 h-2 rounded-full bg-amber-300 animate-pulse"></span>
+            <span>수도권 유일의 국립 초등교원 양성 특수목적종합대학교</span>
+          </div>
+          <h1 class="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight leading-tight">
+            대한민국의 스승을 기르는 힘,<br>
+            <span class="text-transparent bg-clip-text bg-gradient-to-r from-rose-200 via-amber-100 to-rose-300">
+              미래 교육의 혁신을 선도합니다.
+            </span>
+          </h1>
+          <p class="text-rose-100/90 text-base sm:text-lg max-w-2xl mx-auto lg:mx-0 font-light leading-relaxed">
+            인천과 경기(안양)의 아름다운 듀얼 캠퍼스에서, 따뜻한 인성과 첨단 AI·디지털 역량을 겸비한 참스승을 길러내고 지역사회와 함께 성장하고 있습니다.
+          </p>
+          
+          <!-- 검색바 시뮬레이션 -->
+          <div class="pt-2 max-w-xl mx-auto lg:mx-0">
+            <div class="relative flex items-center">
+              <input type="text" id="ginueSearchInput" placeholder="AI교원양성, 늘봄학교, 인천·경기캠퍼스, 평생교육원 등 검색" 
+                     class="w-full pl-12 pr-28 py-3.5 rounded-xl bg-white/10 text-white placeholder-rose-200/60 border border-white/20 focus:outline-none focus:bg-white/20 focus:border-rose-300 text-sm backdrop-blur transition shadow-inner">
+              <i class="fa-solid fa-magnifying-glass absolute left-4 text-rose-200/70"></i>
+              <button onclick="handleSearch()" class="absolute right-2 px-4 py-2 bg-gradient-to-r from-ginue-700 to-rose-700 hover:from-ginue-600 hover:to-rose-600 text-white rounded-lg text-xs font-bold transition shadow-sm border border-rose-400/30">
+                검색
+              </button>
+            </div>
+            <div class="flex items-center space-x-2 mt-2.5 text-xs text-rose-200/90 overflow-x-auto pb-1">
+              <span class="font-medium text-rose-200 shrink-0"><i class="fa-solid fa-fire text-amber-400 mr-1"></i>추천 검색:</span>
+              <button onclick="quickSearch('AI 에듀테크')" class="px-2 py-0.5 rounded bg-white/10 hover:bg-white/20 transition shrink-0">#AI 에듀테크</button>
+              <button onclick="quickSearch('늘봄학교')" class="px-2 py-0.5 rounded bg-white/10 hover:bg-white/20 transition shrink-0">#늘봄학교 지원</button>
+              <button onclick="quickSearch('교원양성')" class="px-2 py-0.5 rounded bg-white/10 hover:bg-white/20 transition shrink-0">#교원양성체제개편</button>
+              <button onclick="quickSearch('평생교육')" class="px-2 py-0.5 rounded bg-white/10 hover:bg-white/20 transition shrink-0">#시민평생교육원</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- 핵심 요약 지표 카드 영역 -->
+        <div class="lg:col-span-5 grid grid-cols-2 gap-4">
+          <div class="bg-white/10 border border-white/15 backdrop-blur rounded-2xl p-5 hover:bg-white/15 transition transform hover:-translate-y-1">
+            <div class="w-10 h-10 rounded-xl bg-rose-400/20 text-rose-300 flex items-center justify-center text-xl mb-3">
+              <i class="fa-solid fa-chalkboard-user"></i>
+            </div>
+            <div class="text-2xl font-black text-white">수도권 1위</div>
+            <p class="text-xs text-rose-100/80 mt-1 font-medium">초등 임용시험 최상위 합격률</p>
+          </div>
+
+          <div class="bg-white/10 border border-white/15 backdrop-blur rounded-2xl p-5 hover:bg-white/15 transition transform hover:-translate-y-1">
+            <div class="w-10 h-10 rounded-xl bg-amber-400/20 text-amber-300 flex items-center justify-center text-xl mb-3">
+              <i class="fa-solid fa-map-location-dot"></i>
+            </div>
+            <div class="text-2xl font-black text-white">듀얼 캠퍼스</div>
+            <p class="text-xs text-rose-100/80 mt-1 font-medium">인천캠퍼스 & 경기(안양) 캠퍼스</p>
+          </div>
+
+          <div class="bg-white/10 border border-white/15 backdrop-blur rounded-2xl p-5 hover:bg-white/15 transition transform hover:-translate-y-1">
+            <div class="w-10 h-10 rounded-xl bg-pink-400/20 text-pink-300 flex items-center justify-center text-xl mb-3">
+              <i class="fa-solid fa-microchip"></i>
+            </div>
+            <div class="text-2xl font-black text-white">AI 에듀테크</div>
+            <p class="text-xs text-rose-100/80 mt-1 font-medium">미래교원 AI·디지털 실습 인프라</p>
+          </div>
+
+          <div class="bg-white/10 border border-white/15 backdrop-blur rounded-2xl p-5 hover:bg-white/15 transition transform hover:-translate-y-1">
+            <div class="w-10 h-10 rounded-xl bg-orange-400/20 text-orange-300 flex items-center justify-center text-xl mb-3">
+              <i class="fa-solid fa-hand-holding-hand"></i>
+            </div>
+            <div class="text-2xl font-black text-white">지역 상생</div>
+            <p class="text-xs text-rose-100/80 mt-1 font-medium">인천·경기 교육청 연계 늘봄·멘토링</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 최근 주요 이슈 섹션 (Hot Topics) -->
+  <section id="issues" class="py-16 sm:py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-12">
+        <span class="inline-block text-ginue-800 font-extrabold text-xs uppercase tracking-wider bg-ginue-50 px-3.5 py-1 rounded-full mb-3 border border-ginue-100">
+          Latest Issues & Initiatives
+        </span>
+        <h2 class="text-3xl font-black text-slate-900 tracking-tight sm:text-4xl">
+          지금 경인교육대학교의 주요 이슈는?
+        </h2>
+        <p class="mt-3 text-base text-slate-600 font-normal">
+          학령인구 감소와 디지털 대전환 시대, 미래 교육의 새 지평을 열어가는 경인교대의 4대 핵심 이슈를 안내합니다.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <!-- 이슈 카드 1: AI 에듀테크 -->
+        <div class="issue-card bg-slate-50 border border-slate-200/90 rounded-2xl p-6 hover:shadow-xl hover:border-ginue-400 transition-all duration-300 flex flex-col justify-between" data-keyword="AI 에듀테크 디지털교과서 미래교육 인공지능">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <span class="px-2.5 py-1 text-xs font-bold rounded-md bg-ginue-100 text-ginue-800">디지털 혁신</span>
+              <span class="text-xs text-slate-400"><i class="fa-solid fa-bolt text-amber-500 mr-1"></i>집중 추진</span>
+            </div>
+            <h3 class="text-xl font-bold text-slate-900 mb-2">
+              AI·에듀테크 미래교원 양성
+            </h3>
+            <p class="text-sm text-slate-600 leading-relaxed mb-4">
+              초등 AI 디지털교과서 도입에 발맞추어, 예비교사 전원에게 데이터 분석 및 생성형 AI 활용 수업 설계 역량을 교육합니다.
+            </p>
+            <ul class="text-xs text-slate-600 space-y-1.5 border-t border-slate-200 pt-3">
+              <li class="flex items-center"><i class="fa-solid fa-check text-ginue-700 mr-2"></i>AI 융합 미래교육센터 및 스마트 실습실 확충</li>
+              <li class="flex items-center"><i class="fa-solid fa-check text-ginue-700 mr-2"></i>에듀테크 소프트랩 연계 실증 연구</li>
+              <li class="flex items-center"><i class="fa-solid fa-check text-ginue-700 mr-2"></i>디지털 기반 교과교육과정 전면 개편</li>
+            </ul>
+          </div>
+          <button onclick="openModal('AI·에듀테크 미래교원 양성', '경인교육대학교는 디지털 대전환 시대에 발맞춰 예비 초등교원들이 미래 교실에서 즉시 활약할 수 있도록 생성형 AI, 코딩, 데이터 분석 수업을 정규 교육과정에 필수 편성하고 있습니다. 교원양성대학 최초로 첨단 스마트 강의실과 가상 수업 실습 환경을 지원합니다.')" 
+                  class="mt-6 w-full py-2.5 text-xs font-bold text-ginue-800 bg-white border border-ginue-200 rounded-xl hover:bg-ginue-800 hover:text-white transition text-center shadow-sm">
+            자세히 알아보기
+          </button>
+        </div>
+
+        <!-- 이슈 카드 2: 늘봄학교 지원 -->
+        <div class="issue-card bg-slate-50 border border-slate-200/90 rounded-2xl p-6 hover:shadow-xl hover:border-ginue-400 transition-all duration-300 flex flex-col justify-between" data-keyword="늘봄학교 방과후 초등돌봄 멘토링 프로그램">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <span class="px-2.5 py-1 text-xs font-bold rounded-md bg-amber-100 text-amber-900">국가 정책 선도</span>
+              <span class="text-xs text-slate-400"><i class="fa-solid fa-heart text-rose-500 mr-1"></i>지역 협력</span>
+            </div>
+            <h3 class="text-xl font-bold text-slate-900 mb-2">
+              늘봄학교 전문 인력 및 프로그램 지원
+            </h3>
+            <p class="text-sm text-slate-600 leading-relaxed mb-4">
+              정부의 국가책임 '늘봄학교'의 성공적인 안착을 위해 인천·경기 지역 초등학교에 우수 대학생 강사 및 맞춤형 콘텐츠를 제공합니다.
+            </p>
+            <ul class="text-xs text-slate-600 space-y-1.5 border-t border-slate-200 pt-3">
+              <li class="flex items-center"><i class="fa-solid fa-check text-ginue-700 mr-2"></i>초1 맞춤형 체육·예술·과학 프로그램 개발</li>
+              <li class="flex items-center"><i class="fa-solid fa-check text-ginue-700 mr-2"></i>재학생 늘봄 튜터링 및 교육봉사 파견</li>
+              <li class="flex items-center"><i class="fa-solid fa-check text-ginue-700 mr-2"></i>늘봄전담사 및 강사 역량 강화 연수 운영</li>
+            </ul>
+          </div>
+          <button onclick="openModal('늘봄학교 지원 프로젝트', '경인교대는 국가책임 돌봄·교육 모델인 늘봄학교를 지원하기 위해 대학 차원의 늘봄지원단을 구성하였습니다. 풍부한 교육 전문성을 바탕으로 양질의 창의융합 방과후 프로그램을 개발하여 지역 초등학교에 보급하고 학생 멘토를 파견합니다.')" 
+                  class="mt-6 w-full py-2.5 text-xs font-bold text-ginue-800 bg-white border border-ginue-200 rounded-xl hover:bg-ginue-800 hover:text-white transition text-center shadow-sm">
+            자세히 알아보기
+          </button>
+        </div>
+
+        <!-- 이슈 카드 3: 교원양성체제 혁신 -->
+        <div class="issue-card bg-slate-50 border border-slate-200/90 rounded-2xl p-6 hover:shadow-xl hover:border-ginue-400 transition-all duration-300 flex flex-col justify-between" data-keyword="교원양성체제개편 다전공 복수전공 실습학기제 학령인구">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <span class="px-2.5 py-1 text-xs font-bold rounded-md bg-rose-100 text-rose-800">학제 개혁</span>
+              <span class="text-xs text-slate-400"><i class="fa-solid fa-scale-balanced text-ginue-700 mr-1"></i>미래 대비</span>
+            </div>
+            <h3 class="text-xl font-bold text-slate-900 mb-2">
+              교원양성체제 개편 & 실습 혁신
+            </h3>
+            <p class="text-sm text-slate-600 leading-relaxed mb-4">
+              학령인구 감소와 소규모 학급 환경에 대응하여, 한 학기 동안 학교 현장에서 배우는 '교육실습학기제'와 융합 다전공 제도를 추진합니다.
+            </p>
+            <ul class="text-xs text-slate-600 space-y-1.5 border-t border-slate-200 pt-3">
+              <li class="flex items-center"><i class="fa-solid fa-check text-ginue-700 mr-2"></i>현장밀착형 실습학기제 시범운영 확대</li>
+              <li class="flex items-center"><i class="fa-solid fa-check text-ginue-700 mr-2"></i>특수교육, 다문화, AI 융합 복수전공 활성화</li>
+              <li class="flex items-center"><i class="fa-solid fa-check text-ginue-700 mr-2"></i>미래 교원의 마음건강 및 생활지도 역량 제고</li>
+            </ul>
+          </div>
+          <button onclick="openModal('교원양성체제 개편 및 실습학기제', '기존 단기 4주 교육실습의 한계를 극복하고, 실제 한 학기(약 16주) 동안 초등학교 교실에서 지도교사와 함께 생활하며 학급경영, 학생 상담, 수업 연구를 입체적으로 배우는 실무형 교원 육성 체계를 구축 중입니다.')" 
+                  class="mt-6 w-full py-2.5 text-xs font-bold text-ginue-800 bg-white border border-ginue-200 rounded-xl hover:bg-ginue-800 hover:text-white transition text-center shadow-sm">
+            자세히 알아보기
+          </button>
+        </div>
+
+        <!-- 이슈 카드 4: 교육전문대학원 & 평생교육 -->
+        <div class="issue-card bg-slate-50 border border-slate-200/90 rounded-2xl p-6 hover:shadow-xl hover:border-ginue-400 transition-all duration-300 flex flex-col justify-between" data-keyword="교육전문대학원 석사 박사 교원연수 현직교사 재교육">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <span class="px-2.5 py-1 text-xs font-bold rounded-md bg-ginue-200 text-ginue-900">전문 재교육</span>
+              <span class="text-xs text-slate-400"><i class="fa-solid fa-graduation-cap text-ginue-800 mr-1"></i>고도화</span>
+            </div>
+            <h3 class="text-xl font-bold text-slate-900 mb-2">
+              현직교사 전문 재교육 & 교육전문대학원
+            </h3>
+            <p class="text-sm text-slate-600 leading-relaxed mb-4">
+              1만 명 이상의 현직 교원을 배출한 교육전문대학원을 중심으로 수업 혁신, 상담심리, AI 융합 석·박사 학위과정을 고도화하고 있습니다.
+            </p>
+            <ul class="text-xs text-slate-600 space-y-1.5 border-t border-slate-200 pt-3">
+              <li class="flex items-center"><i class="fa-solid fa-check text-ginue-700 mr-2"></i>현직 교사 1급 정교사 및 직무 연수 총괄</li>
+              <li class="flex items-center"><i class="fa-solid fa-check text-ginue-700 mr-2"></i>지역 교원 대상 야간·계절제 석사과정 운영</li>
+              <li class="flex items-center"><i class="fa-solid fa-check text-ginue-700 mr-2"></i>경기·인천 시도교육청 맞춤형 공동연구 수행</li>
+            </ul>
+          </div>
+          <button onclick="openModal('교육전문대학원 및 교원 재교육', '경인교육대학교 교육대학원은 현직 초·중등 교사들이 급변하는 교육환경에 발맞춰 심도 있는 연구와 전문 학위를 취득할 수 있는 산실입니다. 주말 및 방학 계절제를 적극 운영하여 교사들의 연구 열정을 지원합니다.')" 
+                  class="mt-6 w-full py-2.5 text-xs font-bold text-ginue-800 bg-white border border-ginue-200 rounded-xl hover:bg-ginue-800 hover:text-white transition text-center shadow-sm">
+            자세히 알아보기
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 경인교대 주요 업무 분야 탭 안내 -->
+  <section id="mission" class="py-16 sm:py-20 bg-ginue-50/40 border-y border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-10">
+        <span class="inline-block text-ginue-800 font-extrabold text-xs uppercase tracking-wider bg-ginue-100/70 px-3.5 py-1 rounded-full mb-3 border border-ginue-200">
+          Core Operations & Mission
+        </span>
+        <h2 class="text-3xl font-black text-slate-900 tracking-tight sm:text-4xl">
+          경인교육대학교의 주요 업무 영역
+        </h2>
+        <p class="mt-3 text-base text-slate-600 font-normal">
+          예비교원 양성부터 교육학술 연구, 현직 교원 연수, 부설초등학교 운영까지 초등교육의 전 과정을 책임집니다.
+        </p>
+      </div>
+
+      <!-- 탭 컨트롤러 버튼 -->
+      <div class="flex flex-wrap justify-center gap-2 mb-8" id="tabList">
+        <button onclick="switchTab('tab-undergrad')" class="tab-btn active px-4 py-2.5 rounded-xl font-bold text-xs sm:text-sm text-slate-700 bg-white shadow-sm border border-slate-200 hover:bg-slate-50 transition">
+          <i class="fa-solid fa-user-graduate mr-1.5 text-ginue-700"></i>학부 예비교원 양성
+        </button>
+        <button onclick="switchTab('tab-grad')" class="tab-btn px-4 py-2.5 rounded-xl font-bold text-xs sm:text-sm text-slate-700 bg-white shadow-sm border border-slate-200 hover:bg-slate-50 transition">
+          <i class="fa-solid fa-book-open-reader mr-1.5 text-ginue-700"></i>교육대학원 & 학술연구
+        </button>
+        <button onclick="switchTab('tab-training')" class="tab-btn px-4 py-2.5 rounded-xl font-bold text-xs sm:text-sm text-slate-700 bg-white shadow-sm border border-slate-200 hover:bg-slate-50 transition">
+          <i class="fa-solid fa-award mr-1.5 text-ginue-700"></i>교원연수원 & 직무개발
+        </button>
+        <button onclick="switchTab('tab-attached')" class="tab-btn px-4 py-2.5 rounded-xl font-bold text-xs sm:text-sm text-slate-700 bg-white shadow-sm border border-slate-200 hover:bg-slate-50 transition">
+          <i class="fa-solid fa-school mr-1.5 text-ginue-700"></i>부설초등학교 & 현장실습
+        </button>
+        <button onclick="switchTab('tab-community')" class="tab-btn px-4 py-2.5 rounded-xl font-bold text-xs sm:text-sm text-slate-700 bg-white shadow-sm border border-slate-200 hover:bg-slate-50 transition">
+          <i class="fa-solid fa-people-roof mr-1.5 text-ginue-700"></i>지역협력 & 평생교육
+        </button>
+      </div>
+
+      <!-- 탭 내용 1: 학부 예비교원 -->
+      <div id="tab-undergrad" class="tab-content bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-sm">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div class="p-5 rounded-xl bg-slate-50 border border-slate-100">
+            <div class="w-9 h-9 rounded-lg bg-ginue-100 text-ginue-800 flex items-center justify-center font-bold mb-3">01</div>
+            <h4 class="font-bold text-slate-900 text-lg mb-2">14개 심화전공 학과 운영</h4>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              초등교육과 단일과 체제 속에서 윤리, 국어, 사회, 수학, 과학, 체육, 음악, 미술, 생활과학교육, 컴퓨터, 교육학, 유아교육, 특수교육, 영어 등 14개 심화전공을 통해 전문성을 극대화합니다.
+            </p>
+          </div>
+          <div class="p-5 rounded-xl bg-slate-50 border border-slate-100">
+            <div class="w-9 h-9 rounded-lg bg-ginue-100 text-ginue-800 flex items-center justify-center font-bold mb-3">02</div>
+            <h4 class="font-bold text-slate-900 text-lg mb-2">단계별 현장 교육실습</h4>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              1학년 참관실습부터 2~3학년 수업실습, 4학년 종합실습에 이르기까지 4년간 체계적인 초등학교 현장 연계를 통해 실무 역량을 배양합니다.
+            </p>
+          </div>
+          <div class="p-5 rounded-xl bg-slate-50 border border-slate-100">
+            <div class="w-9 h-9 rounded-lg bg-ginue-100 text-ginue-800 flex items-center justify-center font-bold mb-3">03</div>
+            <h4 class="font-bold text-slate-900 text-lg mb-2">인성·창의 리더십 프로그램</h4>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              단순 지식 전달자를 넘어 아이들의 아픔을 공감하고 바른 성품을 지도할 수 있는 '교직 인성 및 심리상담 코칭' 특성화 교육을 실시합니다.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 탭 내용 2: 대학원 및 학술연구 -->
+      <div id="tab-grad" class="tab-content hidden bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-sm">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div class="p-5 rounded-xl bg-slate-50 border border-slate-100">
+            <div class="w-9 h-9 rounded-lg bg-ginue-100 text-ginue-800 flex items-center justify-center font-bold mb-3">01</div>
+            <h4 class="font-bold text-slate-900 text-lg mb-2">교육대학원 석·박사과정</h4>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              30여 개 이상의 전문 전공을 개설하여 현직 교사 및 교육전문가에게 최고 수준의 학문적 탐구와 학위 취득의 기회를 부여합니다.
+            </p>
+          </div>
+          <div class="p-5 rounded-xl bg-slate-50 border border-slate-100">
+            <div class="w-9 h-9 rounded-lg bg-ginue-100 text-ginue-800 flex items-center justify-center font-bold mb-3">02</div>
+            <h4 class="font-bold text-slate-900 text-lg mb-2">초등교육연구원 등 부설연구소</h4>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              국내 최고 권위의 한국연구재단 등재학술지 발행 및 교육부 정책 연구용역을 주도하며 대한민국 초등교육 정책의 씽크탱크 역할을 담당합니다.
+            </p>
+          </div>
+          <div class="p-5 rounded-xl bg-slate-50 border border-slate-100">
+            <div class="w-9 h-9 rounded-lg bg-ginue-100 text-ginue-800 flex items-center justify-center font-bold mb-3">03</div>
+            <h4 class="font-bold text-slate-900 text-lg mb-2">국제 교육 학술 교류</h4>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              미국, 일본, 호주 등 해외 유수 교육대학과의 교환학생 및 글로벌 교육실습 파견을 통해 세계시민 교육역량을 배양합니다.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 탭 내용 3: 교원연수원 -->
+      <div id="tab-training" class="tab-content hidden bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-sm">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div class="p-5 rounded-xl bg-slate-50 border border-slate-100">
+            <div class="w-9 h-9 rounded-lg bg-ginue-100 text-ginue-800 flex items-center justify-center font-bold mb-3">01</div>
+            <h4 class="font-bold text-slate-900 text-lg mb-2">1급 정교사 자격연수</h4>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              매년 하계 및 동계 방학 기간 인천·경기·서울 지역 초등 1급 정교사 수천 명의 자격연수를 위탁 운영하여 교직 생애주기 성장을 견인합니다.
+            </p>
+          </div>
+          <div class="p-5 rounded-xl bg-slate-50 border border-slate-100">
+            <div class="w-9 h-9 rounded-lg bg-ginue-100 text-ginue-800 flex items-center justify-center font-bold mb-3">02</div>
+            <h4 class="font-bold text-slate-900 text-lg mb-2">원격교육연수원(G-TI)</h4>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              최첨단 이러닝 플랫폼을 통해 시간과 공간의 제약 없이 최신 교수법, 학교폭력 예방, 다문화 학생 지도 등 직무연수를 지원합니다.
+            </p>
+          </div>
+          <div class="p-5 rounded-xl bg-slate-50 border border-slate-100">
+            <div class="w-9 h-9 rounded-lg bg-ginue-100 text-ginue-800 flex items-center justify-center font-bold mb-3">03</div>
+            <h4 class="font-bold text-slate-900 text-lg mb-2">교감·교장 리더십 연수</h4>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              학교 경영과 민주적 소통 리더십을 갖춘 학교 관리자 전문 역량 강화 프로그램을 제공합니다.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 탭 내용 4: 부설초등학교 -->
+      <div id="tab-attached" class="tab-content hidden bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-sm">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div class="p-5 rounded-xl bg-slate-50 border border-slate-100">
+            <div class="w-9 h-9 rounded-lg bg-ginue-100 text-ginue-800 flex items-center justify-center font-bold mb-3">01</div>
+            <h4 class="font-bold text-slate-900 text-lg mb-2">경인교대부설초등학교 운영</h4>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              인천에 위치한 국립 부설초등학교는 최신 교육이론을 선도적으로 실험하고 검증하는 상설 연구학교의 역할을 수행합니다.
+            </p>
+          </div>
+          <div class="p-5 rounded-xl bg-slate-50 border border-slate-100">
+            <div class="w-9 h-9 rounded-lg bg-ginue-100 text-ginue-800 flex items-center justify-center font-bold mb-3">02</div>
+            <h4 class="font-bold text-slate-900 text-lg mb-2">수업 공개 및 교육자료 보급</h4>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              전국 초등교원을 대상으로 공개 수업 및 연구 성과 발표회를 개최하여 우수 교수학습 모델을 전국의 공·사립 초등학교로 확산합니다.
+            </p>
+          </div>
+          <div class="p-5 rounded-xl bg-slate-50 border border-slate-100">
+            <div class="w-9 h-9 rounded-lg bg-ginue-100 text-ginue-800 flex items-center justify-center font-bold mb-3">03</div>
+            <h4 class="font-bold text-slate-900 text-lg mb-2">예비교원 핵심 실습 베이스캠프</h4>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              경인교대 학부생들이 최고 수준의 멘토 수석교사들 밑에서 수업 시연과 학급 담임 지도를 생생하게 실습하는 산 교육의 장입니다.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 탭 내용 5: 지역상생 & 평생교육 -->
+      <div id="tab-community" class="tab-content hidden bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-sm">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div class="p-5 rounded-xl bg-slate-50 border border-slate-100">
+            <div class="w-9 h-9 rounded-lg bg-ginue-100 text-ginue-800 flex items-center justify-center font-bold mb-3">01</div>
+            <h4 class="font-bold text-slate-900 text-lg mb-2">시민 평생교육원 운영</h4>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              인천과 안양의 지역 주민들을 위해 인문학, 외국어, 문화예술, 자격증 취득 등 연간 100여 개 이상의 양질의 평생학습 강좌를 개방합니다.
+            </p>
+          </div>
+          <div class="p-5 rounded-xl bg-slate-50 border border-slate-100">
+            <div class="w-9 h-9 rounded-lg bg-ginue-100 text-ginue-800 flex items-center justify-center font-bold mb-3">02</div>
+            <h4 class="font-bold text-slate-900 text-lg mb-2">과학영재교육원</h4>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              수학·과학·정보 분야에 뛰어난 잠재력을 가진 초·중등 꿈나무들을 선발하여 대학 전임 교수진이 직접 실험·탐구 중심의 심화 영재교육을 제공합니다.
+            </p>
+          </div>
+          <div class="p-5 rounded-xl bg-slate-50 border border-slate-100">
+            <div class="w-9 h-9 rounded-lg bg-ginue-100 text-ginue-800 flex items-center justify-center font-bold mb-3">03</div>
+            <h4 class="font-bold text-slate-900 text-lg mb-2">지역 취약계층 교육 멘토링</h4>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              인천 및 안양 지역 다문화 가정 학생, 기초학력 보정이 필요한 학생들을 위해 재학생들이 1:1 맞춤형 학습 및 정서 멘토링을 전개합니다.
+            </p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 듀얼 캠퍼스 안내 (인천 & 경기안양) -->
+  <section id="campus" class="py-16 sm:py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-14">
+        <span class="inline-block text-ginue-800 font-extrabold text-xs uppercase tracking-wider bg-ginue-50 px-3.5 py-1 rounded-full mb-3 border border-ginue-200">
+          Dual Campus Network
+        </span>
+        <h2 class="text-3xl font-black text-slate-900 tracking-tight sm:text-4xl">
+          수도권을 아우르는 2개의 명품 캠퍼스
+        </h2>
+        <p class="mt-3 text-base text-slate-600 tracking-tight leading-relaxed">
+          역사와 전통의 인천캠퍼스와 첨단 교육 인프라의 경기(안양) 캠퍼스가 하나 되어 최상의 교육환경을 제공합니다.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        
+        <!-- 캠퍼스 1: 인천캠퍼스 -->
+        <div class="bg-gradient-to-b from-slate-50 to-white rounded-3xl p-8 border border-slate-200 shadow-sm hover:shadow-md transition">
+          <div class="flex items-center justify-between mb-4">
+            <div class="flex items-center space-x-3">
+              <span class="w-10 h-10 rounded-xl bg-ginue-800 text-white flex items-center justify-center font-black text-lg shadow-sm">
+                <i class="fa-solid fa-tree"></i>
+              </span>
+              <div>
+                <h3 class="text-2xl font-bold text-slate-900">인천캠퍼스</h3>
+                <p class="text-xs text-slate-500 font-medium tracking-tight">인천광역시 계양구 계산로 62(계산동)</p>
+              </div>
+            </div>
+            <span class="px-3.5 py-1 bg-ginue-50 text-ginue-800 text-xs font-bold rounded-full border border-ginue-200 whitespace-nowrap">역사와 본부</span>
+          </div>
+
+          <p class="text-sm text-slate-600 leading-relaxed mb-6 tracking-tight">
+            1953년 개교 이래 대한민국 초등교육의 산실로서 자리매김한 유서 깊은 캠퍼스입니다. 대학본부, 부설초등학교, 학생생활관, 체육관 등이 위치하며 계양산의 맑은 정기와 함께 쾌적한 학습 환경을 자랑합니다.
+          </p>
+
+          <div class="space-y-2.5 text-xs text-slate-700 bg-white p-5 rounded-2xl border border-slate-200 tracking-tight">
+            <div class="flex items-start"><i class="fa-solid fa-location-dot text-ginue-800 mr-2.5 mt-0.5 w-4 text-center shrink-0"></i><div><span class="font-bold text-slate-800">교통 안내: </span>인천지하철 1호선 경인교대입구역 4번 출구 도보 5분</div></div>
+            <div class="flex items-start"><i class="fa-solid fa-landmark text-ginue-800 mr-2.5 mt-0.5 w-4 text-center shrink-0"></i><div><span class="font-bold text-slate-800">주요 시설: </span>대학본부, 인천도서관, 부설초등학교, 학생회관, 예지관(기숙사)</div></div>
+            <div class="flex items-start"><i class="fa-solid fa-phone text-ginue-800 mr-2.5 mt-0.5 w-4 text-center shrink-0"></i><div><span class="font-bold text-slate-800">대표 안내전화: </span>032-540-1114</div></div>
+          </div>
+        </div>
+
+        <!-- 캠퍼스 2: 경기(안양)캠퍼스 -->
+        <div class="bg-gradient-to-b from-slate-50 to-white rounded-3xl p-8 border border-slate-200 shadow-sm hover:shadow-md transition">
+          <div class="flex items-center justify-between mb-4">
+            <div class="flex items-center space-x-3">
+              <span class="w-10 h-10 rounded-xl bg-ginue-900 text-white flex items-center justify-center font-black text-lg shadow-sm">
+                <i class="fa-solid fa-building-columns"></i>
+              </span>
+              <div>
+                <h3 class="text-2xl font-bold text-slate-900">경기캠퍼스</h3>
+                <p class="text-xs text-slate-500 font-medium tracking-tight">경기도 안양시 만안구 삼막로 155(석수동)</p>
+              </div>
+            </div>
+            <span class="px-3.5 py-1 bg-ginue-50 text-ginue-800 text-xs font-bold rounded-full border border-ginue-200 whitespace-nowrap">첨단 인프라</span>
+          </div>
+
+          <p class="text-sm text-slate-600 leading-relaxed mb-6 tracking-tight">
+            2005년 설립된 최첨단 친환경 캠퍼스로 수도권 남부의 교육 허브입니다. 최신식 전자도서관, 첨단 강의동, 연구강의동, 체육복합시설을 완비하여 현대적인 교원 양성과 교육대학원 연구 활동을 선도합니다.
+          </p>
+
+          <div class="space-y-2.5 text-xs text-slate-700 bg-white p-5 rounded-2xl border border-slate-200 tracking-tight">
+            <div class="flex items-start"><i class="fa-solid fa-location-dot text-ginue-800 mr-2.5 mt-0.5 w-4 text-center shrink-0"></i><div><span class="font-bold text-slate-800">교통 안내: </span>1호선 관악역 및 KTX 광명역 인접 (교내 셔틀버스 수시 운행)</div></div>
+            <div class="flex items-start"><i class="fa-solid fa-landmark text-ginue-800 mr-2.5 mt-0.5 w-4 text-center shrink-0"></i><div><span class="font-bold text-slate-800">주요 시설: </span>교육대학원, 경기전자도서관, 미래교육센터, 자연관, 학생생활관</div></div>
+            <div class="flex items-start"><i class="fa-solid fa-phone text-ginue-800 mr-2.5 mt-0.5 w-4 text-center shrink-0"></i><div><span class="font-bold text-slate-800">대표 안내전화: </span>031-470-6114</div></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 국민·시민·학부모 대상 개방 프로그램 -->
+  <section id="citizens" class="py-16 sm:py-20 bg-slate-50 border-t border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-12">
+        <span class="inline-block text-ginue-800 font-extrabold text-xs uppercase tracking-wider bg-ginue-100/70 px-3.5 py-1 rounded-full mb-3 border border-ginue-200">
+          Open To Citizens
+        </span>
+        <h2 class="text-3xl font-black text-slate-900 tracking-tight sm:text-4xl">
+          국민 여러분을 위한 열린 캠퍼스
+        </h2>
+        <p class="mt-3 text-base text-slate-600">
+          대학의 문턱을 낮추고 시민과 학부모, 어린이 여러분과 함께 호흡하는 경인교대의 다양한 참여 기회를 만나보세요.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm flex flex-col justify-between">
+          <div>
+            <div class="w-12 h-12 rounded-xl bg-ginue-100 text-ginue-800 flex items-center justify-center text-xl mb-4">
+              <i class="fa-solid fa-brain"></i>
+            </div>
+            <h3 class="text-lg font-bold text-slate-900 mb-2">경인교대 과학영재교육원</h3>
+            <p class="text-xs text-slate-600 leading-relaxed mb-4">
+              관찰·추천제 및 영재성 검사를 통해 선발된 인천·경기 초등학생 대상 심화 탐구 수업을 주말 및 방학 동안 운영합니다.
+            </p>
+          </div>
+          <a href="https://gifted.ginue.ac.kr" target="_blank" class="text-xs font-bold text-ginue-800 flex items-center hover:underline">
+            <span>영재교육원 누리집 바로가기</span>
+            <i class="fa-solid fa-angle-right ml-1"></i>
+          </a>
+        </div>
+
+        <div class="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm flex flex-col justify-between">
+          <div>
+            <div class="w-12 h-12 rounded-xl bg-ginue-100 text-ginue-800 flex items-center justify-center text-xl mb-4">
+              <i class="fa-solid fa-palette"></i>
+            </div>
+            <h3 class="text-lg font-bold text-slate-900 mb-2">시민 평생교육원 열린 강좌</h3>
+            <p class="text-xs text-slate-600 leading-relaxed mb-4">
+              미술, 서예, 심리상담사, 스피치, 외국어 회화, 아동지도사 등 시민들의 역량 개발과 취미를 위한 100여 개 강좌가 상시 개설됩니다.
+            </p>
+          </div>
+          <a href="https://life.ginue.ac.kr" target="_blank" class="text-xs font-bold text-ginue-800 flex items-center hover:underline">
+            <span>수강신청 및 개설강좌 안내</span>
+            <i class="fa-solid fa-angle-right ml-1"></i>
+          </a>
+        </div>
+
+        <div class="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm flex flex-col justify-between">
+          <div>
+            <div class="w-12 h-12 rounded-xl bg-ginue-100 text-ginue-800 flex items-center justify-center text-xl mb-4">
+              <i class="fa-solid fa-book-bookmark"></i>
+            </div>
+            <h3 class="text-lg font-bold text-slate-900 mb-2">대학 도서관 지역주민 열람 개방</h3>
+            <p class="text-xs text-slate-600 leading-relaxed mb-4">
+              인천캠퍼스 및 경기캠퍼스 도서관은 지역 주민들에게 특별열람증 발급을 통해 도서 열람 및 자료 이용 서비스를 제공합니다.
+            </p>
+          </div>
+          <a href="https://lib.ginue.ac.kr" target="_blank" class="text-xs font-bold text-ginue-800 flex items-center hover:underline">
+            <span>도서관 이용 자격 안내</span>
+            <i class="fa-solid fa-angle-right ml-1"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 국민 자주 묻는 질문 (FAQ) -->
+  <section id="faq" class="py-16 sm:py-20 bg-white">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <span class="inline-block text-ginue-800 font-extrabold text-xs uppercase tracking-wider bg-ginue-50 px-3.5 py-1 rounded-full mb-3 border border-ginue-200">
+          FAQ
+        </span>
+        <h2 class="text-3xl font-black text-slate-900 tracking-tight sm:text-4xl">
+          경인교대에 대해 자주 묻는 질문
+        </h2>
+        <p class="mt-3 text-base text-slate-600">
+          입학, 캠퍼스 생활, 교원 자격증 등 국민 여러분의 주요 궁금증을 명쾌하게 답변해 드립니다.
+        </p>
+      </div>
+
+      <div class="space-y-3.5">
+        
+        <!-- FAQ 1 -->
+        <div class="faq-item bg-slate-50 border border-slate-200 rounded-xl overflow-hidden shadow-sm">
+          <button onclick="toggleFaq(this)" class="w-full text-left px-5 py-4 font-bold text-slate-900 flex justify-between items-center hover:bg-slate-100/70 transition">
+            <span class="flex items-center space-x-3 text-sm sm:text-base">
+              <span class="text-ginue-800 font-black">Q.</span>
+              <span>경인교대를 졸업하면 어떤 자격이 주어지며, 초등교사가 되려면 어떻게 하나요?</span>
+            </span>
+            <i class="fa-solid fa-chevron-down text-slate-400 transition transform duration-200 text-sm"></i>
+          </button>
+          <div class="faq-answer hidden px-5 pb-4 pt-1 text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-slate-200/60 bg-white">
+            <p><strong>답변:</strong> 경인교육대학교를 졸업하면 교육학사 학위와 함께 <strong>초등학교 정교사(2급) 자격증</strong>이 주어집니다. 국·공립 초등학교 교사가 되기 위해서는 각 시·도교육청에서 매년 주관하는 '공립 초등교사 임용후보자 선정경쟁시험(임용고시)'에 응시하여 최종 합격해야 하며, 사립 초등학교 지원 시에도 필수 자격이 됩니다.</p>
+          </div>
+        </div>
+
+        <!-- FAQ 2 -->
+        <div class="faq-item bg-slate-50 border border-slate-200 rounded-xl overflow-hidden shadow-sm">
+          <button onclick="toggleFaq(this)" class="w-full text-left px-5 py-4 font-bold text-slate-900 flex justify-between items-center hover:bg-slate-100/70 transition">
+            <span class="flex items-center space-x-3 text-sm sm:text-base">
+              <span class="text-ginue-800 font-black">Q.</span>
+              <span>인천캠퍼스와 경기(안양) 캠퍼스는 학과가 나뉘어 있나요? 학생 배치는 어떻게 되나요?</span>
+            </span>
+            <i class="fa-solid fa-chevron-down text-slate-400 transition transform duration-200 text-sm"></i>
+          </button>
+          <div class="faq-answer hidden px-5 pb-4 pt-1 text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-slate-200/60 bg-white">
+            <p><strong>답변:</strong> 두 캠퍼스는 분교 형태가 아닌 '하나의 통합 국립대학'입니다. 학부 교육과정은 학년제 또는 심화과정에 따라 양 캠퍼스의 시설과 강의를 유기적으로 순환하며 수강할 수 있도록 설계되어 있으며, 교육대학원 석사과정 및 주요 연구 기능은 주로 경기캠퍼스에 활성화되어 있습니다.</p>
+          </div>
+        </div>
+
+        <!-- FAQ 3 -->
+        <div class="faq-item bg-slate-50 border border-slate-200 rounded-xl overflow-hidden shadow-sm">
+          <button onclick="toggleFaq(this)" class="w-full text-left px-5 py-4 font-bold text-slate-900 flex justify-between items-center hover:bg-slate-100/70 transition">
+            <span class="flex items-center space-x-3 text-sm sm:text-base">
+              <span class="text-ginue-800 font-black">Q.</span>
+              <span>최근 학령인구 감소로 교원 채용이 줄어드는데, 경인교대의 대책은 무엇인가요?</span>
+            </span>
+            <i class="fa-solid fa-chevron-down text-slate-400 transition transform duration-200 text-sm"></i>
+          </button>
+          <div class="faq-answer hidden px-5 pb-4 pt-1 text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-slate-200/60 bg-white">
+            <p><strong>답변:</strong> 경인교대는 단순 초등교원 양성에 그치지 않고, <strong>AI·디지털 에듀테크 전문성</strong>, <strong>늘봄학교 및 방과후 교육 기획 역량</strong>, <strong>다문화 및 특수교육 복수전공</strong>을 강화하여 급변하는 교육환경 속에서 대체 불가능한 융합형 교육전문가를 육성하고 있습니다. 또한 정원 감축과 질적 고도화를 병행하여 임용 경쟁력을 지속적으로 유지하고 있습니다.</p>
+          </div>
+        </div>
+
+        <!-- FAQ 4 -->
+        <div class="faq-item bg-slate-50 border border-slate-200 rounded-xl overflow-hidden shadow-sm">
+          <button onclick="toggleFaq(this)" class="w-full text-left px-5 py-4 font-bold text-slate-900 flex justify-between items-center hover:bg-slate-100/70 transition">
+            <span class="flex items-center space-x-3 text-sm sm:text-base">
+              <span class="text-ginue-800 font-black">Q.</span>
+              <span>일반 시민이나 타 대학 졸업자도 경인교대에서 교원 자격이나 학위를 취득할 수 있나요?</span>
+            </span>
+            <i class="fa-solid fa-chevron-down text-slate-400 transition transform duration-200 text-sm"></i>
+          </button>
+          <div class="faq-answer hidden px-5 pb-4 pt-1 text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-slate-200/60 bg-white">
+            <p><strong>답변:</strong> 초등학교 2급 정교사 자격은 학부 과정을 졸업하거나 일부 자격취득 과정(상담교사 등)을 통해 취득할 수 있습니다. 교육대학원은 현직 교원의 재교육 및 석·박사 학위 취득이 주 목적이지만, 일반 시민의 경우 평생교육원이나 영재교육원 등 열린 교육 프로그램을 통해 다양한 자격 및 소양 과정을 이수하실 수 있습니다.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 대국민 소통 및 응원 메시지 / 의견 수렴 창구 (와인 테마) -->
+  <section class="py-16 sm:py-20 bg-slate-50 border-t border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="bg-gradient-to-br from-ginue-950 via-ginue-900 to-slate-950 rounded-3xl p-8 sm:p-12 text-white shadow-2xl relative overflow-hidden border border-ginue-900/60">
+        
+        <div class="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+          <div class="lg:col-span-7 space-y-4">
+            <span class="px-3.5 py-1 rounded-full bg-white/10 text-rose-200 text-xs font-semibold border border-white/20">참스승을 키우는 경인교육가족</span>
+            <h2 class="text-2xl sm:text-4xl font-extrabold leading-tight">
+              미래 교육을 이끌어갈 예비 교원들에게<br>
+              따뜻한 응원과 의견을 남겨주세요.
+            </h2>
+            <p class="text-rose-100/80 text-xs sm:text-sm max-w-xl font-light leading-relaxed">
+              국민 여러분이 바라는 참된 교사의 모습, 경인교대 발전 아이디어를 남겨주시면 교육과정 개선 및 대학 운영에 소중히 반영하겠습니다.
+            </p>
+            <div class="pt-2 flex flex-wrap gap-4 text-xs text-rose-200">
+              <div><i class="fa-solid fa-phone text-amber-300 mr-2"></i>인천캠퍼스: 032-540-1114</div>
+              <div><i class="fa-solid fa-phone text-amber-300 mr-2"></i>경기캠퍼스: 031-470-6114</div>
+            </div>
+          </div>
+
+          <!-- 소통 폼 -->
+          <div class="lg:col-span-5 bg-white/10 backdrop-blur-md p-6 rounded-2xl border border-white/20">
+            <form id="cheerForm" onsubmit="submitCheer(event)" class="space-y-4">
+              <div>
+                <label class="block text-xs font-medium text-rose-100 mb-1">성명 또는 닉네임</label>
+                <input type="text" id="cheerName" required placeholder="예: 인천 시민 김선생, 학부모 이음" class="w-full px-3 py-2 rounded-lg bg-white/10 border border-white/20 text-white placeholder-rose-200/50 text-xs focus:outline-none focus:border-rose-400">
+              </div>
+              <div>
+                <label class="block text-xs font-medium text-rose-100 mb-1">관심 분야</label>
+                <select id="cheerCategory" class="w-full px-3 py-2 rounded-lg bg-ginue-950 border border-white/20 text-white text-xs focus:outline-none focus:border-rose-400">
+                  <option value="예비교원 응원">미래 예비교사 격려 및 응원</option>
+                  <option value="AI디지털교육">AI·디지털 에듀테크 역량 제안</option>
+                  <option value="늘봄멘토링">늘봄학교 및 지역 멘토링 요청</option>
+                  <option value="평생교육/영재교육">평생교육원 및 과학영재교육원 문의</option>
+                  <option value="기타">대학 발전을 위한 자유 제언</option>
+                </select>
+              </div>
+              <div>
+                <label class="block text-xs font-medium text-rose-100 mb-1">메시지 내용</label>
+                <textarea id="cheerText" rows="3" required placeholder="경인교대 구성원들에게 전하고 싶은 메시지를 입력해 주세요." class="w-full px-3 py-2 rounded-lg bg-white/10 border border-white/20 text-white placeholder-rose-200/50 text-xs focus:outline-none focus:border-rose-400"></textarea>
+              </div>
+              <button type="submit" class="w-full py-3 bg-gradient-to-r from-ginue-600 via-rose-600 to-ginue-700 hover:from-ginue-500 hover:to-rose-500 text-white font-bold rounded-lg text-xs transition shadow-md border border-rose-400/30">
+                따뜻한 메시지 보내기
+              </button>
+            </form>
+            <div id="cheerSuccess" class="hidden mt-3 p-3 bg-emerald-500/20 border border-emerald-400/30 text-emerald-200 text-xs rounded-lg text-center font-medium">
+              감사합니다! 소중한 응원과 제언이 경인교육대학교에 잘 전달되었습니다.
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 하단 푸터 (Footer) -->
+  <footer class="bg-ginue-950 text-ginue-200/70 text-xs py-12 border-t border-ginue-900">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col md:flex-row items-center justify-between pb-8 border-b border-ginue-900 gap-6">
+        <div class="flex items-center space-x-3">
+          <div class="w-8 h-8 rounded-lg bg-ginue-800 text-white flex items-center justify-center font-bold shadow">
+            <i class="fa-solid fa-graduation-cap"></i>
+          </div>
+          <span class="text-white font-bold text-base tracking-wide">경인교육대학교</span>
+        </div>
+        <div class="flex flex-wrap items-center justify-center gap-4 text-ginue-300 text-xs">
+          <a href="https://www.ginue.ac.kr" target="_blank" class="hover:text-white transition">대표 누리집</a>
+          <span>·</span>
+          <a href="https://grad.ginue.ac.kr" target="_blank" class="hover:text-white transition">교육대학원</a>
+          <span>·</span>
+          <a href="https://lib.ginue.ac.kr" target="_blank" class="hover:text-white transition">도서관</a>
+          <span>·</span>
+          <a href="https://ife.ginue.ac.kr" target="_blank" class="hover:text-white transition">부설초등학교</a>
+          <span>·</span>
+          <a href="https://life.ginue.ac.kr" target="_blank" class="hover:text-white transition">평생교육원</a>
+          <span>·</span>
+          <a href="https://gifted.ginue.ac.kr" target="_blank" class="hover:text-white transition">과학영재교육원</a>
+        </div>
+      </div>
+      <div class="pt-8 flex flex-col md:flex-row items-center justify-between text-ginue-300/60 gap-4">
+        <div>
+          <p>[인천캠퍼스] (21044) 인천광역시 계양구 계산로 62 | 대표전화: 032-540-1114</p>
+          <p class="mt-1">[경기캠퍼스] (13910) 경기도 안양시 만안구 삼막로 155 | 대표전화: 031-470-6114</p>
+        </div>
+        <p class="md:text-right">&copy; 2026 Gyeongin National University of Education. All Rights Reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- 정책 상세 모달 다이얼로그 -->
+  <div id="ginueModal" class="fixed inset-0 z-50 hidden flex items-center justify-center bg-slate-900/60 backdrop-blur-sm p-4">
+    <div class="bg-white rounded-2xl max-w-lg w-full p-6 shadow-2xl border border-slate-200 transform transition-all">
+      <div class="flex items-center justify-between pb-3 border-b border-slate-100">
+        <h3 id="modalTitle" class="text-lg font-bold text-slate-900">이슈 상세 안내</h3>
+        <button onclick="closeModal()" class="text-slate-400 hover:text-slate-600 p-1 rounded-lg">
+          <i class="fa-solid fa-xmark text-lg"></i>
+        </button>
+      </div>
+      <div class="py-4">
+        <p id="modalContent" class="text-slate-600 text-sm leading-relaxed"></p>
+      </div>
+      <div class="flex justify-end pt-3 border-t border-slate-100">
+        <button onclick="closeModal()" class="px-4 py-2 bg-ginue-800 text-white rounded-lg text-xs font-bold hover:bg-ginue-900 transition shadow">
+          확인했습니다
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- JavaScript 스크립트 -->
+  <script>
+    // 모바일 메뉴 토글
+    const mobileBtn = document.getElementById('mobileMenuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    mobileBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+
+    // 탭 전환 기능
+    function switchTab(tabId) {
+      const contents = document.querySelectorAll('.tab-content');
+      contents.forEach(c => c.classList.add('hidden'));
+
+      const activeContent = document.getElementById(tabId);
+      if (activeContent) {
+        activeContent.classList.remove('hidden');
+      }
+
+      const buttons = document.querySelectorAll('.tab-btn');
+      buttons.forEach(b => b.classList.remove('active'));
+
+      event.currentTarget.classList.add('active');
+    }
+
+    // FAQ 아코디언 토글
+    function toggleFaq(btn) {
+      const answer = btn.nextElementSibling;
+      const chevron = btn.querySelector('.fa-chevron-down');
+      
+      if (answer.classList.contains('hidden')) {
+        answer.classList.remove('hidden');
+        chevron.style.transform = 'rotate(180deg)';
+      } else {
+        answer.classList.add('hidden');
+        chevron.style.transform = 'rotate(0deg)';
+      }
+    }
+
+    // 상세 모달 열기/닫기
+    function openModal(title, content) {
+      document.getElementById('modalTitle').innerText = title;
+      document.getElementById('modalContent').innerText = content;
+      document.getElementById('ginueModal').classList.remove('hidden');
+    }
+
+    function closeModal() {
+      document.getElementById('ginueModal').classList.add('hidden');
+    }
+
+    // 검색 기능
+    function handleSearch() {
+      const query = document.getElementById('ginueSearchInput').value.trim();
+      if (!query) {
+        alert('검색어를 입력해주세요.');
+        return;
+      }
+      quickSearch(query);
+    }
+
+    function quickSearch(keyword) {
+      const lower = keyword.toLowerCase();
+      const cards = document.querySelectorAll('.issue-card');
+      let found = false;
+
+      cards.forEach(card => {
+        const text = card.getAttribute('data-keyword').toLowerCase() + card.innerText.toLowerCase();
+        if (text.includes(lower)) {
+          card.classList.remove('hidden');
+          card.classList.add('ring-2', 'ring-ginue-700');
+          setTimeout(() => card.classList.remove('ring-2', 'ring-ginue-700'), 2500);
+          found = true;
+        } else {
+          card.classList.add('hidden');
+        }
+      });
+
+      if (!found) {
+        alert(`'${keyword}'에 관한 검색 결과를 찾지 못했습니다. 전체 카드를 다시 표시합니다.`);
+        cards.forEach(c => c.classList.remove('hidden'));
+      } else {
+        document.getElementById('issues').scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+
+    // 응원 메시지 제출
+    function submitCheer(e) {
+      e.preventDefault();
+      const successMsg = document.getElementById('cheerSuccess');
+      successMsg.classList.remove('hidden');
+
+      document.getElementById('cheerName').value = '';
+      document.getElementById('cheerText').value = '';
+
+      setTimeout(() => {
+        successMsg.classList.add('hidden');
+      }, 5000);
+    }
+  </script>
+</body>
+</html>
